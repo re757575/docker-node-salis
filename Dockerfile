@@ -1,9 +1,7 @@
 #
-# Node.js Dockerfile
+# https://hub.docker.com/r/library/node/
 #
-# https://github.com/dockerfile/nodejs
-#
-FROM    dockerfile/nodejs
+FROM node:slim
 
 # Install app dependencies
 COPY package.json /src/package.json
@@ -11,7 +9,8 @@ COPY bower.json /src/bower.json
 RUN \
     cd /src && \
     npm install && \
-    bower install
+    npm install -g bower && \
+    bower install --allow-root
 
 # Bundle app source
 COPY . /src
