@@ -1,0 +1,6 @@
+salis_web:
+#  build: .
+  volumes:
+    - "./:/src"
+  ports:
+    - "1337:1337"

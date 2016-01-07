@@ -1,11 +1,17 @@
 #
 # https://hub.docker.com/r/library/node/
-#
+# https://hub.docker.com/r/re757575/docker-node-salis/
 FROM node:slim
 
+RUN mkdir /src
+
+# Install git
+RUN apt-get update && \
+    apt-get install -y git
+
 # Install app dependencies
-COPY package.json /src/package.json
-COPY bower.json /src/bower.json
+ADD  package.json /src/package.json
+ADD  bower.json /src/bower.json
 RUN \
     cd /src && \
     npm install && \
@@ -13,7 +19,7 @@ RUN \
     bower install --allow-root
 
 # Bundle app source
-COPY . /src
+ADD . /src
 
 # Define working directory.
 WORKDIR /src
