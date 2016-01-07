@@ -1,5 +1,6 @@
 salis_web:
 #  build: .
+  image: re757575/docker-node-salis
   volumes:
     - "./:/src"
   ports:
