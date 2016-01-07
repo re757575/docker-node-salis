@@ -1,2 +1,3 @@
-# docker-node-salis
-docker-node-salis
+# docker-node-sails
+
+a [Sails](http://sailsjs.org) application
