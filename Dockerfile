@@ -5,9 +5,9 @@ FROM node:slim
 
 RUN mkdir /src
 
-# Install git
+# Install git vim curl
 RUN apt-get update && \
-    apt-get install -y git && \
+    apt-get install -y git vim curl && \
     git config --global url.https://.insteadOf git://
 
 # Install app dependencies
