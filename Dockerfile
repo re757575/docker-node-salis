@@ -28,4 +28,4 @@ WORKDIR /src
 EXPOSE  1137
 
 # Define default command.
-CMD ["node", "/src/app.js"]
+CMD ["npm", "start"]

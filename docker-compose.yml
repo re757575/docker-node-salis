@@ -1,7 +1,18 @@
-salis_web:
-#  build: .
-  image: re757575/docker-node-salis
-  volumes:
-    - "./:/src"
-  ports:
-    - "1337:1337"
+version: '2'
+
+services:
+  db:
+    image: mongo:3.0.8
+  web:
+    # build: .
+    image: docker-node-salis
+    # Override the default command.
+    command: node app.js --prod --verbose
+    ports:
+    # host port:container port
+      - "80:1337"
+    depends_on:
+      - db
+    # only version 1 work
+    # environment:
+    #  - NODE_ENV=production
